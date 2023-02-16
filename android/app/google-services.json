@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "352594445878",
+    "project_id": "private-go",
+    "storage_bucket": "private-go.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352594445878:android:1d0e9168312b91520bfa97",
+        "android_client_info": {
+          "package_name": "com.example.go_private"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352594445878-l8ft5p3p0go7fsuifvgdbm6rmhvcqiba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATQFzRJHLjw_DUy-gyZM2y4dtfPMuY5uQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352594445878-l8ft5p3p0go7fsuifvgdbm6rmhvcqiba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
