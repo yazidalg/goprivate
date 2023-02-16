@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_private/src/components/text_field_component.dart';
 import 'package:go_private/src/controllers/auth_controller.dart';
 import 'package:go_private/src/views/register_view.dart';
 
@@ -11,41 +12,100 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(AuthController());
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          "GoPrivate.",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
+      backgroundColor: const Color(0xffFCFEFF),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(200),
+        child: Center(
+          child: Text(
+            "Go Private",
+            style: TextStyle(
+              fontSize: 45,
+              fontWeight: FontWeight.w900,
+            ),
           ),
         ),
       ),
       body: Container(
-        child: Column(
-          children: [
-            TextField(controller: controller.emailField.value),
-            TextField(controller: controller.passwordField.value),
-            ElevatedButton(
-              onPressed: () async {},
-              child: Text("Login"),
-            )
-          ],
+        margin: const EdgeInsets.only(
+          left: 25,
+          right: 25,
+        ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              const Text(
+                "Selamat Datang",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black,
+                ),
+              ),
+              const Text(
+                "Login ke akun anda",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 40),
+              TextFieldComponent(
+                controller: controller.emailField.value,
+                inputType: TextInputType.emailAddress,
+                isVisible: false,
+                icon: Icons.email,
+              ),
+              const SizedBox(height: 17),
+              TextFieldComponent(
+                controller: controller.confirmPasswordField.value,
+                inputType: TextInputType.text,
+                icon: Icons.lock,
+                isVisible: true,
+              ),
+              const SizedBox(height: 70),
+              ElevatedButton(
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(
+                    Color(0xff00AA13),
+                  ),
+                  minimumSize: MaterialStatePropertyAll(
+                    Size(double.infinity, 40),
+                  ),
+                  elevation: MaterialStatePropertyAll(0),
+                ),
+                onPressed: () async {
+                  await controller.loginUser();
+                },
+                child: const Text(
+                  "Login",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    letterSpacing: 1,
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
+        height: 100,
+        alignment: Alignment.center,
         child: RichText(
           text: TextSpan(
-              text: "Sudah Punya Akun?",
-              style: TextStyle(color: Colors.black),
+              text: "Tidak Punya Akun? ",
+              style: const TextStyle(
+                color: Color(0xff494949),
+              ),
               children: [
                 TextSpan(
-                  text: "Login",
-                  style: TextStyle(color: Color.fromRGBO(253, 180, 72, 0)),
+                  text: " Buat Akun",
+                  style: const TextStyle(
+                    color: Color(0xffFDB448),
+                  ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () => Get.off(
                           const RegisterView(),
