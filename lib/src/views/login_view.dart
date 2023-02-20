@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_private/src/components/text_field_component.dart';
 import 'package:go_private/src/controllers/auth_controller.dart';
-import 'package:go_private/src/views/register_view.dart';
+import 'package:go_private/src/views/register/register_view.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -55,6 +55,7 @@ class LoginView extends StatelessWidget {
                 inputType: TextInputType.emailAddress,
                 isVisible: false,
                 icon: Icons.email,
+                hintText: 'Email',
               ),
               const SizedBox(height: 17),
               TextFieldComponent(
@@ -62,17 +63,23 @@ class LoginView extends StatelessWidget {
                 inputType: TextInputType.text,
                 icon: Icons.lock,
                 isVisible: true,
+                hintText: 'Password',
               ),
               const SizedBox(height: 70),
               ElevatedButton(
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(
+                style: ButtonStyle(
+                  backgroundColor: const MaterialStatePropertyAll(
                     Color(0xff00AA13),
                   ),
-                  minimumSize: MaterialStatePropertyAll(
+                  minimumSize: const MaterialStatePropertyAll(
                     Size(double.infinity, 40),
                   ),
-                  elevation: MaterialStatePropertyAll(0),
+                  elevation: const MaterialStatePropertyAll(0),
+                  shape: MaterialStatePropertyAll(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
                 ),
                 onPressed: () async {
                   await controller.loginUser();

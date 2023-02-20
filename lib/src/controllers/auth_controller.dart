@@ -10,6 +10,7 @@ class AuthController extends GetxController {
   Rx<TextEditingController> phoneField = TextEditingController().obs;
   Rx<TextEditingController> passwordField = TextEditingController().obs;
   Rx<TextEditingController> confirmPasswordField = TextEditingController().obs;
+  RxList<String> educations = <String>['SD', 'SMP', 'SMA'].obs;
 
   registerUser() async {
     try {

@@ -1,17 +1,15 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:go_private/src/controllers/auth_controller.dart';
 import 'package:go_private/src/views/login_view.dart';
-
-import '../components/text_field_component.dart';
+import 'package:go_private/src/views/register/register_student_view.dart';
+import 'package:go_private/src/views/register/register_teacher_view.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(AuthController());
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(200),
@@ -52,7 +50,7 @@ class RegisterView extends StatelessWidget {
               ),
               const SizedBox(height: 40),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.off(const RegisterTeacherView()),
                 style: const ButtonStyle(
                   elevation: MaterialStatePropertyAll(0),
                   backgroundColor: MaterialStatePropertyAll(
@@ -72,7 +70,7 @@ class RegisterView extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Get.off(const RegisterStudentView()),
                 style: const ButtonStyle(
                   elevation: MaterialStatePropertyAll(0),
                   backgroundColor: MaterialStatePropertyAll(

@@ -7,12 +7,14 @@ class TextFieldComponent extends StatelessWidget {
     required this.icon,
     required this.inputType,
     required this.isVisible,
+    required this.hintText,
   });
 
   final TextEditingController controller;
   final IconData icon;
   final TextInputType inputType;
   final bool isVisible;
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class TextFieldComponent extends StatelessWidget {
         ),
         prefixIcon: Icon(icon),
         prefixIconColor: const Color.fromRGBO(0, 0, 0, 0.10),
-        hintText: "Email",
+        hintText: hintText,
         hintStyle: const TextStyle(
           color: Color.fromRGBO(0, 0, 0, 0.25),
         ),
